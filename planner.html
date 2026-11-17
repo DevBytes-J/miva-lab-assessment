@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Planner · Joanna Bassey</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/shared/logo.png?v=2" />
+  <link rel="shortcut icon" type="image/png" href="assets/shared/logo.png?v=2" />
+  <link rel="apple-touch-icon" href="assets/shared/logo.png?v=2" />
+  <link rel="stylesheet" href="css/base.css?v=4" />
+  <link rel="stylesheet" href="css/planner.css?v=4" />
+  <style>
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spinning-star,
+    .form-title svg,
+    .page-heading > svg {
+      display: inline-block !important;
+      transform-origin: 50% 50% !important;
+      animation: slowSpin 8s linear infinite !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <button class="wordmark" data-nav="home" aria-label="Go to homepage">
+        <img src="assets/shared/logo.png" alt="Joanna Bassey Logo" class="wordmark-logo" />
+      </button>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <button data-nav="home">Home</button>
+        <button data-nav="about">About</button>
+        <button data-nav="projects">Work</button>
+        <button data-nav="planner" class="active">Planner</button>
+        <button data-nav="contact">Contact</button>
+      </nav>
+
+      <button class="nav-cta" data-nav="contact">
+        Let’s connect
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+          <path d="M19 6v12" opacity=".25" />
+        </svg>
+      </button>
+
+      <button class="menu-button" id="menu-button" aria-label="Toggle menu">
+        <svg id="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+    </header>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" style="display: none;">
+      <button data-nav="home"><span>01</span>Home</button>
+      <button data-nav="about"><span>02</span>About</button>
+      <button data-nav="projects"><span>03</span>Work</button>
+      <button data-nav="planner"><span>04</span>Planner</button>
+      <button data-nav="contact"><span>05</span>Contact</button>
+    </nav>
+
+    <main id="main-content" class="page-enter">
+      <section class="page-heading">
+        <div class="page-number">
+          03<span>/ 04</span>
+        </div>
+        <div>
+          <p class="eyebrow">Academic planner</p>
+          <h1>
+            Make space for<br />
+            <em>what matters.</em>
+          </h1>
+        </div>
+        <svg class="spinning-star" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2c.4 5.7 4.3 9.6 10 10-5.7.4-9.6 4.3-10 10-.4-5.7-4.3-9.6-10-10 5.7-.4 9.6-4.3 10-10Z" />
+        </svg>
+      </section>
+
+      <section class="planner-layout">
+        <aside class="planner-sidebar">
+          <div class="date-block">
+            <span>Today</span>
+            <strong id="planner-day">17</strong>
+            <p id="planner-month-year">November 2026</p>
+          </div>
+          <div class="progress-ring" id="planner-progress-ring" style="--progress: 0deg;">
+            <div>
+              <strong id="planner-progress-pct">0%</strong>
+              <span>complete</span>
+            </div>
+          </div>
+          <p id="planner-summary-text">
+            0 of 0 tasks completed. Keep moving, one task at a time.
+          </p>
+        </aside>
+
+        <div class="planner-main">
+          <form class="task-form" id="task-form">
+            <div class="form-title">
+              <svg class="spinning-star" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2c.4 5.7 4.3 9.6 10 10-5.7.4-9.6 4.3-10 10-.4-5.7-4.3-9.6-10-10 5.7-.4 9.6-4.3 10-10Z" />
+              </svg>
+              <div>
+                <span>Add something new</span>
+                <strong>What needs your attention?</strong>
+              </div>
+            </div>
+            <label>
+              Task name
+              <input
+                id="task-title-input"
+                placeholder="e.g. Study chapter four"
+              />
+            </label>
+            <div class="form-row">
+              <label>
+                Course
+                <select id="task-course-select">
+                  <option value="">Select course</option>
+                  <option>COS 106</option>
+                  <option>COS 104</option>
+                  <option>GST 102</option>
+                  <option>MAT 102</option>
+                </select>
+              </label>
+              <label>
+                Due date
+                <input type="date" id="task-date-input" />
+              </label>
+            </div>
+            <p class="form-error" id="task-form-error" style="display: none;"></p>
+            <button class="primary-btn" type="submit">
+              Add to my list
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+                <path d="M19 6v12" opacity=".25" />
+              </svg>
+            </button>
+          </form>
+
+          <div class="task-list-head">
+            <h3>
+              My tasks <span id="task-total-badge">0</span>
+            </h3>
+            <div id="task-filter-buttons">
+              <button type="button" class="active" data-filter="all">all</button>
+              <button type="button" data-filter="active">active</button>
+              <button type="button" data-filter="done">done</button>
+            </div>
+          </div>
+
+          <div class="task-list" id="task-list" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-mark">
+        <img src="assets/shared/footer-logo.png" alt="Joanna Bassey Logo" class="footer-logo" />
+      </div>
+      <p>
+        Designing thoughtful<br class="footer-br-mobile" />
+        digital experiences,<br />
+        one line of code at a time.
+      </p>
+      <div class="footer-divider" aria-hidden="true">
+        <span class="footer-divider-line"></span>
+        <svg class="footer-star" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2 Q12 12 22 12 Q12 12 12 22 Q12 12 2 12 Q12 12 12 2 Z" />
+        </svg>
+        <span class="footer-divider-line"></span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/DevBytes-J/" target="_blank" rel="noreferrer" aria-label="GitHub" class="footer-icon-link">
+          <svg class="footer-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span class="footer-link-text">GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/joanna-bassey-554004338/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="footer-icon-link">
+          <svg class="footer-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.5 21.5h-5v-13h5v13zM4 6.2c-1.6 0-2.8-1.2-2.8-2.6 0-1.5 1.2-2.6 2.8-2.6 1.5 0 2.7 1.2 2.7 2.6 0 1.4-1.2 2.6-2.7 2.6zm18.5 15.3h-5v-6.9c0-1.8-.7-2.9-2.2-2.9-1.2 0-1.9.8-2.2 1.6-.1.3-.1.7-.1 1.1v7.1h-5s.1-12 0-13h5v2c.7-1 1.9-2.3 4.2-2.3 3.1 0 5.3 2 5.3 6.3v7z"/>
+          </svg>
+          <span class="footer-link-text">LinkedIn</span>
+        </a>
+        <a href="mailto:joannabassey19@gmail.com" aria-label="Email" class="footer-icon-link">
+          <svg class="footer-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          <span class="footer-link-text">Email</span>
+        </a>
+      </div>
+      <small>© <span id="footer-year">2026</span> Joanna Bassey · MIVA Open University</small>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>
