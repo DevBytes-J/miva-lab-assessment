@@ -2,11 +2,11 @@
   min-height: auto;
   max-width: 1400px;
   margin: auto;
-  padding: 36px 7vw 40px;
+  padding: 16px 7vw 36px;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 4vw;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
 }
 .hero::before {
@@ -35,7 +35,7 @@
   line-height: 0.98;
   letter-spacing: -0.04em;
   color: var(--color-deep-wine);
-  margin: 26px 0;
+  margin: 18px 0 20px;
 }
 .rotating-word {
   display: inline-block;
@@ -58,7 +58,7 @@
   letter-spacing: -0.01em;
 }
 .hero-actions {
-  margin-top: 38px;
+  margin-top: 28px;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -251,10 +251,10 @@
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 30px;
+    padding-top: 18px;
   }
   .hero-visual {
-    margin-top: 20px;
+    margin-top: 15px;
   }
   .hero .eyebrow {
     font-size: 9px;
@@ -280,7 +280,7 @@
 
 @media (max-width: 600px) {
   .hero {
-    padding: 24px 20px 35px;
+    padding: 14px 20px 28px;
     min-height: auto;
   }
   .hero h1 {
