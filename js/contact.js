@@ -53,13 +53,64 @@ document.addEventListener("DOMContentLoaded", () => {
       showError(errorMessage, next.message || "");
 
       if (!Object.keys(next).length) {
-        const firstName = values.name.trim().split(" ")[0];
-        if (successFirstName) {
-          successFirstName.textContent = `${firstName}.`;
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnHtml = submitBtn ? submitBtn.innerHTML : "Send my message";
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
         }
-        if (defaultView) defaultView.style.display = "none";
-        if (successView) successView.style.display = "flex";
-        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        fetch("https://formspree.io/f/mzznwwnq", {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        })
+          .then((response) => {
+            if (response.ok) {
+              const firstName = values.name.trim().split(" ")[0];
+              if (successFirstName) {
+                successFirstName.textContent = `${firstName}.`;
+              }
+              if (defaultView) defaultView.style.display = "none";
+              if (successView) successView.style.display = "flex";
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              contactForm.reset();
+            } else {
+              response.json().then((data) => {
+                if (data && data.errors && data.errors.length) {
+                  showError(
+                    errorMessage,
+                    data.errors.map((err) => err.message).join(", ")
+                  );
+                } else {
+                  showError(
+                    errorMessage,
+                    "There was a problem sending your message. Please try again."
+                  );
+                }
+              }).catch(() => {
+                showError(
+                  errorMessage,
+                  "There was a problem sending your message. Please try again."
+                );
+              });
+            }
+          })
+          .catch(() => {
+            showError(
+              errorMessage,
+              "Network error. Please check your connection and try again."
+            );
+          })
+          .finally(() => {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalBtnHtml;
+            }
+          });
       }
     });
   }

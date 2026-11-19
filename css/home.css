@@ -1,8 +1,8 @@
 .hero {
-  min-height: 690px;
+  min-height: auto;
   max-width: 1400px;
   margin: auto;
-  padding: 80px 7vw 40px;
+  padding: 36px 7vw 40px;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 4vw;
@@ -251,7 +251,7 @@
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 65px;
+    padding-top: 30px;
   }
   .hero-visual {
     margin-top: 20px;
@@ -280,7 +280,7 @@
 
 @media (max-width: 600px) {
   .hero {
-    padding: 55px 25px 35px;
+    padding: 24px 20px 35px;
     min-height: auto;
   }
   .hero h1 {
