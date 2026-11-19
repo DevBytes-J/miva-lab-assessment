@@ -4,5 +4,6 @@ Thumbs.db
 .DS_Store
 
 # Editor directories and files
-.vscode/
 .idea/
+config.bat
+node_modules

@@ -2,11 +2,11 @@
   min-height: auto;
   max-width: 1400px;
   margin: auto;
-  padding: 16px 7vw 36px;
+  padding: 52px 7vw 45px;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 4vw;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
 }
 .hero::before {
@@ -35,7 +35,7 @@
   line-height: 0.98;
   letter-spacing: -0.04em;
   color: var(--color-deep-wine);
-  margin: 18px 0 20px;
+  margin: 22px 0;
 }
 .rotating-word {
   display: inline-block;
@@ -58,23 +58,23 @@
   letter-spacing: -0.01em;
 }
 .hero-actions {
-  margin-top: 28px;
+  margin-top: 32px;
   display: flex;
   align-items: center;
   gap: 30px;
 }
 .hero-visual {
   position: relative;
-  min-height: 540px;
+  min-height: 450px;
   display: grid;
   place-items: center;
 }
 .image-frame {
-  width: min(400px, 80%);
-  height: 520px;
+  width: min(340px, 80%);
+  height: 440px;
   padding: 13px;
   border: 1px solid var(--color-orchid);
-  border-radius: 210px 210px 14px 14px;
+  border-radius: 175px 175px 14px 14px;
   position: relative;
   z-index: 2;
   background: var(--cream);
@@ -84,7 +84,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
-  border-radius: 195px 195px 8px 8px;
+  border-radius: 165px 165px 8px 8px;
   filter: saturate(0.7) contrast(0.95);
 }
 .orbit {
@@ -93,13 +93,13 @@
   border-radius: 50%;
 }
 .orbit-one {
-  width: 510px;
-  height: 510px;
+  width: 430px;
+  height: 430px;
   animation: slowSpin 34s linear infinite;
 }
 .orbit-two {
-  width: 570px;
-  height: 410px;
+  width: 480px;
+  height: 350px;
   transform: rotate(35deg);
 }
 .orbit-one::after {
@@ -109,14 +109,14 @@
   background: var(--color-orchid);
   border-radius: 50%;
   position: absolute;
-  right: 35px;
-  top: 90px;
+  right: 28px;
+  top: 75px;
 }
 .floating-note {
   position: absolute;
   z-index: 3;
   left: -5px;
-  top: 115px;
+  top: 85px;
   background: var(--paper);
   box-shadow: 0 16px 50px #461d3a1a;
   padding: 17px 20px;
@@ -150,8 +150,8 @@
   }
 }
 .monogram-stamp {
-  width: 78px;
-  height: 78px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: var(--color-deep-wine);
   color: white;
@@ -159,9 +159,9 @@
   place-items: center;
   position: absolute;
   right: 2%;
-  bottom: 15px;
+  bottom: 10px;
   z-index: 4;
-  font: italic 25px "Playfair Display";
+  font: italic 22px "Playfair Display";
   transform: rotate(8deg);
 }
 .monogram-stamp small {
@@ -251,10 +251,10 @@
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 18px;
+    padding-top: 45px;
   }
   .hero-visual {
-    margin-top: 15px;
+    margin-top: 25px;
   }
   .hero .eyebrow {
     font-size: 9px;
@@ -280,35 +280,35 @@
 
 @media (max-width: 600px) {
   .hero {
-    padding: 14px 20px 28px;
+    padding: 40px 20px 30px;
     min-height: auto;
   }
   .hero h1 {
     font-size: 42px;
   }
   .hero-actions {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 15px;
   }
   .hero-visual {
-    min-height: 430px;
+    min-height: 370px;
   }
   .image-frame {
-    height: 400px;
-    width: 86%;
+    height: 350px;
+    width: 84%;
   }
   .orbit-one {
-    width: 410px;
-    height: 410px;
+    width: 350px;
+    height: 350px;
   }
   .orbit-two {
-    width: 430px;
-    height: 320px;
+    width: 360px;
+    height: 270px;
   }
   .floating-note {
     left: 0;
-    top: 80px;
+    top: 65px;
   }
   .monogram-stamp {
     right: 0;
